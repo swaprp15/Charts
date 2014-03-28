@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+(function() {
+  var url = "http://localhost:8080/Charts/Data.jsp";
+  $.getJSON(
+		  url,
+		  {
+	    	tags: "mount rainier",
+	    	tagmode: "any",
+	    	format: "json"
+	  			}
+			 )
+		    .done(function( data ) 
+		    		{
+		     	 		$.each( data.items, 
+		     	 				function( i, item ) 
+		     	 				{
+		     	 					alert(item);
+		      					}
+		     	 			);
+		    		});
+		})();
+</script>
+</body>
+</html>

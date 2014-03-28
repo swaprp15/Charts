@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+  var url = "http://localhost:8080/Charts/Data.jsp";
+  $.getJSON(
+		  url,
+		  function( data ) 
+	  		{
+			  $.each( data, function( key, val ) {
+				    alert(key + " : " + val);
+				  });
+	  		}
+			 )
+			 .done(function(){alert("done.")})
+			 .fail(function(){alert("fail.")})
+			 .complete(function(){alert("complete.")})
+			 .error(function(jqXHR, textStatus, errorThrown) {
+        alert("error " + textStatus);
+        alert	("incoming Text " + jqXHR.responseText);
+    });
+</script>
+</body>
+</html>
